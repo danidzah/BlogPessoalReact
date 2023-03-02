@@ -1,10 +1,11 @@
 .titulo{
-    color: #cf4e88;
+    color: blue;
     text-align: center;
 }
+
 .img{
-    width:1240px;
-    height:150px;
+    width: 500px;
+    height: 500px;
     display: block;
     margin: 0 auto;
 }
