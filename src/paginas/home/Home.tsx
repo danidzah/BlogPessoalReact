@@ -24,7 +24,7 @@ return (
         </Box>
         </Grid>
         <Grid item xs={6} className="Gridimg">
-            <img className="img" src="https://images-ext-2.discordapp.net/external/8KZpnIEv3ngXOnG9soQQOmaPK6R7-txtzeBT0jMsDjk/https/i.imgur.com/qcgk1tC.png?width=425&height=427" alt="Logo Blog" width="400px" height="290px" />
+            <img className="img" src="https://i.imgur.com/iVhncTi.png" alt="Logo Blog"/>
         </Grid>
         <Grid xs={12} style={{ backgroundColor: "white" }}>
         </Grid>

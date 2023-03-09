@@ -1,55 +1,49 @@
-import React from 'react';
-import { AppBar, Toolbar, Typography} from '@material-ui/core';
-import {Box} from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Box, AppBar, Toolbar, IconButton, Button, Typography } from "@mui/material";
+import MenuIcon from '@mui/icons-material/Menu';
+import React from "react"
 import './Navbar.css'
+import { Link } from 'react-router-dom';
+
 
 function Navbar() {
     return (
         <>
-            <AppBar position="static">
-                <Toolbar variant="dense">
-                    <Box className='cursor'>
-                        <Typography variant="h5" color="inherit">
-                            BlogPessoal
+            <Box sx={{ flexGrow: 1 }}>
+                <AppBar position="static" >
+                    <Toolbar >
+                        <IconButton
+                            size="large"
+                            edge="start"
+                            color="inherit"
+                            aria-label="menu"
+                            sx={{ mr: 2 }}
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                        <Link to="login" className='text-decorator-none'>
+                        <Button style={{ color: "white" }}>Inicio</Button>
+                            </Link>
                         </Typography>
-                    </Box>
+                        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                            <Button color="inherit">Categoria</Button>
+                        </Typography>
+                        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                            <Link to="cadastrousuario" className='text-decorator-none'>
+                                <Button style={{ color: "white" }}>cadastrar</Button>
+                            </Link>
+                        </Typography>
 
-                    <Box display="flex" justifyContent="start">
-                        <Box mx={1} className='cursor'>
-                            <Typography variant="h6" color="inherit">
-                                home
-                            </Typography>
-                        </Box>
-                        <Box mx={1} className='cursor'>
-                            <Typography variant="h6" color="inherit">
-                                postagens
-                            </Typography>
-                        </Box>
-                        <Box mx={1} className='cursor'>
-                            <Typography variant="h6" color="inherit">
-                                temas
-                            </Typography>
-                        </Box>
-                        <Box mx={1} className='cursor'>
-                            <Typography variant="h6" color="inherit">
-                                cadastrar tema
-                            </Typography>
-                        </Box>
-                        <Link to='/login' className='text-decorator-none'>
-                            <Box mx={1} className='cursor'>
-                                <Typography variant="h6" color="inherit">
-                                    logout
-                                </Typography>
-                            </Box>
+
+                        <Link to="login" className='text-decorator-none'>
+
+                            <Button style={{ color: "white" }}>Logout</Button>
                         </Link>
-                        
-                    </Box>
+                    </Toolbar>
+                </AppBar>
+            </Box>
 
-                </Toolbar>
-            </AppBar>
         </>
-    )
+    );
 }
-
 export default Navbar;

@@ -1,5 +1,5 @@
 .caixa{
-    background-color: #3F51B5;
+    background-color: #ff006a;
 }
 
 .titulo{
@@ -7,12 +7,14 @@
     font-weight: bold !important;
 }
 .fundo{
-    background-color: rgb(77, 72, 76);
+    background-color: rgb(255, 180, 211);
     margin-bottom: 300px;
 }
 
 .img{
-    border-radius: 20px; 
+    border-radius: 0px; 
+    width: 400px;
+    height: 194px;
 }
 
 .Gridimg{
