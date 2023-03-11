@@ -2,6 +2,7 @@ import React from 'react';
 import './Home.css';
 import { Box } from '@mui/material';
 import { Grid, Typography, Button } from '@material-ui/core';
+import TabPostagem from '../../components/postagens/tabPostagem/TabPostagem';
 
 
 function Home() {
@@ -26,9 +27,9 @@ return (
         <Grid item xs={6} className="Gridimg">
             <img className="img" src="https://i.imgur.com/iVhncTi.png" alt="foto Blog"/>
         </Grid>
-        <Grid xs={12} className='img'>
+        <Grid xs={12} className='postagens'>
+            <TabPostagem />
         </Grid>
-
     </Grid>
     </div>
 );
