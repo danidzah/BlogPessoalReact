@@ -3,8 +3,8 @@ import { Grid, Typography, Button, TextField } from '@material-ui/core';
 import { Box } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import './CadastroUsuario.css';
-import { cadastro } from '../services/Service';
-import User from '../models/User';
+import { cadastro } from '../../services/Service';
+import User from '../../models/User';
 
 function CadastroUsuario() {
     let navigate = useNavigate();

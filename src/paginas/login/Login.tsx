@@ -10,6 +10,7 @@ import { login } from '../../services/Service';
 
 function Login() {
     let navigate = useNavigate();
+    
     const [token, setToken] = useLocalStorage('token');
     const [userLogin, setUserLogin] = useState<UserLogin>(
         {
@@ -58,7 +59,6 @@ function Login() {
                         <TextField value={userLogin.senha} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label="senha" variant="outlined" name="senha" margin="normal" type="password" fullWidth />
                         <Box marginTop={2} textAlign="center">
                             
-
                                 <Button type="submit" variant="contained" color="primary" >
                                     Logar
                                 </Button>
@@ -74,17 +74,13 @@ function Login() {
                         </Box>
                         <Link to="/cadastrousuario">
                             <Typography variant="subtitle1" gutterBottom align="center" style={{ fontWeight: "bold" }}>
-                                cadastre-se
+                                Cadastre-se
                             </Typography>
                         </Link>
                     </Box>
                 </Box>
             </Grid>
-            <Grid xs={6} style={{
-                backgroundImage: 'url(https://leaftaxconsultants.com/wp-content/uploads/2020/07/civil-engineering-min-768x512.jpg)',
-                backgroundRepeat: "no-repeat", width: "100vh", minHeight: "100vh", backgroundSize: "cover", background: "cover", backgroundPosition: "center"
-            }}>
-
+            <Grid xs={6} className='imagem'>
             </Grid>
         </Grid>
     );

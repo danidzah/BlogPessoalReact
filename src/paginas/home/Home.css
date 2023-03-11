@@ -6,6 +6,13 @@
     color: white !important;
     font-weight: bold !important;
 }
+
+
+.botao{
+    border-color: azure;
+    background-color: #ff006a;
+    color: aliceblue;
+}
 .fundo{
     background-color: rgb(255, 180, 211);
     margin-bottom: 300px;
