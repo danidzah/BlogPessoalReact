@@ -1,11 +1,10 @@
 import React, {useState, useEffect} from 'react'
-import { Link } from 'react-router-dom'
 import {Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
+import { Link,useNavigate} from 'react-router-dom'
 import {Box} from '@mui/material';
-import Tema from '../../../models/Tema';
-import './ListaTema.css';
 import useLocalStorage from 'react-use-localstorage';
-import {useNavigate} from 'react-router-dom';
+import './ListaTema.css';
+import Tema from '../../../models/Tema';
 import { busca } from '../../../services/Service';
 
 function ListaTema() {
@@ -22,7 +21,7 @@ function ListaTema() {
 
 
   async function getTema(){
-    await busca("/tema", setTemas, {
+    await busca("/temas", setTemas, {
       headers: {
         'Authorization': token
       }
