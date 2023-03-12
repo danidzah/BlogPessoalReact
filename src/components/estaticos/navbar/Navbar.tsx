@@ -3,20 +3,28 @@ import MenuIcon from "@mui/icons-material/Menu";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
-import useLocalStorage from "react-use-localstorage";
+import { useDispatch, useSelector } from "react-redux";
+import { TokenState } from "../../../store/tokens/TokensReducer";
+import { addToken } from "../../../store/tokens/Actions";
 
-function Navbar() {
-  const [token, setToken] = useLocalStorage("token");
-  let navigate = useNavigate();
+
+function Navbar(){
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+);
+let navigate = useNavigate();
+const dispatch = useDispatch(); 
 
   function goLogout() {
-    setToken("");
+    dispatch(addToken('')); 
     alert("Usuário deslogado");
     navigate("/login");
   }
 
-  return (
-    <Box sx={{ flexGrow: 1 }}>
+  var navbarComponent;
+
+  if(token != ""){
+navbarComponent= <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
           <IconButton
@@ -39,7 +47,7 @@ function Navbar() {
             </Link>
           </Typography>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <Link to="postagem" className="text-decorator-none">
+            <Link to="posts" className="text-decorator-none">
               <Button color="inherit">postagem</Button>
             </Link>
           </Typography>
@@ -63,6 +71,11 @@ function Navbar() {
         </Toolbar>
       </AppBar>
     </Box>
+  }
+  return (
+    <>
+    {navbarComponent}
+    </>
   );
 }
 
