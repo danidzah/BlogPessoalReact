@@ -6,22 +6,30 @@ import "./Navbar.css";
 import { useDispatch, useSelector } from "react-redux";
 import { TokenState } from "../../../store/tokens/TokensReducer";
 import { addToken } from "../../../store/tokens/Actions";
+import {toast} from 'react-toastify';
 
+function Navbar() {
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    );
+    let navigate = useNavigate();
+    const dispatch = useDispatch();
 
-function Navbar(){
-  const token = useSelector<TokenState, TokenState["tokens"]>(
-    (state) => state.tokens
-);
-let navigate = useNavigate();
-const dispatch = useDispatch(); 
-
-  function goLogout() {
-    dispatch(addToken('')); 
-    alert("Usuário deslogado");
-    navigate("/login");
-  }
-
-  var navbarComponent;
+    function goLogout() {
+        dispatch(addToken(''));
+        toast.info('Usuário deslogado', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            theme: "colored",
+            progress: undefined,
+        });
+        navigate('/login')
+    }
+    var navbarComponent;
 
   if(token != ""){
 navbarComponent= <Box sx={{ flexGrow: 1 }}>

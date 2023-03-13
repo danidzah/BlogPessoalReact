@@ -15,11 +15,13 @@ import DeletarTema from './components/temas/deletarTema/DeletarTema';
 import { Provider } from 'react-redux';
 import store from './store/Store';
 import Navbar from './components/estaticos/navbar/Navbar';
+import { ToastContainer } from 'react-toastify';
 
 
 function App() {
   return (
     <Provider store={store}>
+      <ToastContainer />
     <Router>
       <Navbar />
     

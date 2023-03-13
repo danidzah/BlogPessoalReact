@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
-import {Typography, Grid, Button} from '@material-ui/core';
-import {Box, Link} from '@mui/material';
-import TabPostagem from '../../components/postagens/tabPostagem/TabPostagem';
-import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
+import { Typography, Grid, Button } from '@material-ui/core';
 import './Home.css';
 import { useNavigate } from 'react-router';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../store/tokens/TokensReducer';
+import { Link } from 'react-router-dom';
+import { Box } from '@mui/material';
+import { toast } from 'react-toastify';
+import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
+import TabPostagem from '../../components/postagens/tabPostagem/TabPostagem';
 
 function Home() {
 
@@ -14,14 +16,24 @@ function Home() {
     const token = useSelector<TokenState, TokenState["tokens"]>(
         (state) => state.tokens
     );
-    
-    useEffect(() => {
-    if (token == "") {
-        alert("Você precisa estar logado")
-        navigate("/login")
 
-    }
-}, [token])
+    useEffect(() => {
+        if (token == "") {
+            toast.error('Você precisa estar logado', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
+            navigate("/login")
+
+        }
+    }, [token])
+
     return (
         <>
             <Grid container direction="row" justifyContent="center" alignItems="center" className='caixa'>
