@@ -2,10 +2,9 @@ import React, { ChangeEvent, useEffect, useState} from 'react';
 import { Grid, Typography, Button, TextField } from '@material-ui/core';
 import { Box } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
-import './CadastroUsuario.css';
-
 import User from '../../models/User';
 import { toast } from 'react-toastify';
+import { cadastro } from '../../services/Service';
 
 function CadastroUsuario() {
 
@@ -53,7 +52,7 @@ function CadastroUsuario() {
         e.preventDefault()
         if(confirmarSenha == user.senha){
 
-        CadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
+        cadastro(`/usuarios/cadastrar`, user, setUserResult)
         
         toast.success('Usuario cadastrado com sucesso', {
             position: "top-right",
